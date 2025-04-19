@@ -1,7 +1,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,35 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="{% static 'images/plant_2.svg' %}" />
     <title>Plant Collector</title>
-    <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.min.css" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    {% block head %} 
+    {% block head %}
+
     {% endblock %}
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="header-logo-container">
-          <a href="/">
-            <img class="navbar-logo" src="{% static 'images/main_logo-removebg-preview.png' %}" alt="The Plant Collector Logo" />
-          </a>
+          <a href="/"><img class="navbar-logo" src="{% static 'images/main_logo-removebg-preview.png' %}" alt="The Plant Collector Logo" /></a>
         </div>
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="/">Home
+                <a class="nav-link active" href="/">
+                  Home
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
+                <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/plants">All Plants</a>
+                <a class="nav-link" href="{% url 'plant-index' %}">All Plants</a>
               </li>
             </ul>
           </div>
@@ -46,8 +43,9 @@
       </nav>
     </header>
     <main>
-     {% block content %} 
-     {% endblock %}
-     </main>
+      {% block content %}
+
+      {% endblock %}
+    </main>
   </body>
 </html>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/plants/plant-detail.css' %}" />
+{% endblock %}
+{% block content %}
+  <div class="page-layout">
+    <div class="left-column">
+      <div class="card-container">
+        <div class="card">
+          <div class="card mb-3">
+            <h3 class="card-header">{{ plant.name }}</h3>
+            <img src="{{ plant.image }}" alt="Your Image Description" class="d-block user-select-none" width="100%" height="100%" style="object-fit: cover;" />
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Species: {{ plant.species }}</li>
+              <li class="list-group-item">Date_added: {{ plant.date_added }}</li>
+            </ul>
+            <div class="card-body">
+              <p class="card-text">Description: {{ plant.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-column">
+      <div class="card border-dark mb-3" style="max-width: 20rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h4 class="card-title">Dark card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+      <div class="card border-dark mb-3" style="max-width: 20rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h4 class="card-title">Dark card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
