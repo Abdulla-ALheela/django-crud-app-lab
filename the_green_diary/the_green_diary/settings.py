@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'the_green_diary.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'the_green_diary',
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'catcollector',
+    }
 }
 
 
