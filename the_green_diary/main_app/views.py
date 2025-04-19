@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Plant
+
 
 
 def home(request):
@@ -7,5 +9,6 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-def cat_index(request):
-    return render(request, 'plants/index.html')
+def plant_index(request):
+    plants = Plant.objects.all()
+    return render(request, 'plants/index.html', {'plants': plants})
