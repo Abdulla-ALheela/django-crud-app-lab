@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %} 
+{% block content %}
+
+
+<div class="card-container">
+    <div class="card">
+        <div class="page-header">
+            {% if plant %}
+            <h1>Edit {{ plant.name }}</h1>
+          {% else %}
+            <h1>Add a Plant</h1>
+          {% endif %}
+        </div>
+        <br>
+<form action="" method="post" class="form-container">
+  {% csrf_token %}
+  <table class="col-form-label mt-4">
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn submit">Submit!</button>
+</form>
+<div>
+<div> 
+
+{% endblock %}
