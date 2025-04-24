@@ -7,7 +7,7 @@ class WateringForm(forms.ModelForm):
     class Meta:
         model = Watering 
         fields = ['water_amount', 'date' ]
-        widgets = {'date': forms.DateInput(format=('%Y-%m-%d'),attrs={  'placeholder': 'Select a date', 'type': 'date'}),}
+        widgets = {'date': forms.DateInput(format=('%Y-%m-%d'),attrs={  'placeholder': 'Select a date', 'type': 'date', 'class': 'col-form-label col-form-label-sm mt-4 form-floating mb-3',}),}
 
 class PlantForm(forms.ModelForm):
     class Meta:
@@ -18,7 +18,9 @@ class PlantForm(forms.ModelForm):
                 attrs={
                     'type': 'date',
                     'placeholder': 'Select a date',
+                    'class': 'col-form-label col-form-label-sm mt-4 form-floating mb-3'
                 },
                 format='%Y-%m-%d'
             ),
         }
+

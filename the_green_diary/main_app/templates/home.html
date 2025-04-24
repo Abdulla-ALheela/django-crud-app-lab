@@ -2,6 +2,8 @@
   <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock %} {% block content %}
 {% if not user.is_authenticated %}
+<div class="card-container">
+  <div class="card"> 
 <section>
   <form action="{% url 'home' %}" method="post" class="login">
     <h1>Login</h1>
@@ -10,5 +12,7 @@
     <button type="submit" class="btn submit">Login</button>
   </form>
 </section>
+<div>
+  <div> 
 {% endif %}
 {% endblock %}
