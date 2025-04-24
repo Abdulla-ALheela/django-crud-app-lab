@@ -24,11 +24,27 @@
     </div>
     <div class="right-column">
       <div class="card border-dark mb-3" style="max-width: 20rem;">
-        <div class="card-header">Header</div>
+        <div class="card-header">Add a Watering</div>
+        <form  action="{% url 'add-watering' plant.id %}" method="post" class="subsection-content" autocomplete="off">
+          {% csrf_token %} 
+          {{ watering_form.as_p }}
+          <button type="submit" class="btn btn-primary">Add Watering</button>
+        </form> 
+        <br/>
+        <div class="card-header">Wateringr Log</div>
         <div class="card-body">
-          <h4 class="card-title">Dark card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      {% if plant.watering_set.all.count %}
+          <ul>
+      {% for watering in plant.watering_set.all %}
+          <li class="card-title">{{watering.water_amount}} ml on {{watering.date}}</li>
+      {% endfor %}
+          </ul>
         </div>
+      {% else %}
+        <div class="subsection-content">
+        <p>⚠️ {{plant.name}} has not been watered!</p>
+        </div>
+      {% endif %}
       </div>
 
       <div class="card border-dark mb-3" style="max-width: 20rem;">
