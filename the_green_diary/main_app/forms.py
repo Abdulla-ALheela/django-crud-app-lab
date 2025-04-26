@@ -7,12 +7,20 @@ class WateringForm(forms.ModelForm):
     class Meta:
         model = Watering 
         fields = ['water_amount', 'date' ]
-        widgets = {'date': forms.DateInput(format=('%Y-%m-%d'),attrs={  'placeholder': 'Select a date', 'type': 'date', 'class': 'col-form-label col-form-label-sm mt-4 form-floating mb-3',}),}
+        widgets = {
+            'date': forms.DateInput(
+                attrs={
+                    'type': 'date',  # 🔥 this triggers the date picker
+                    'class': 'form-control',
+                    'placeholder': 'Select a date',
+                }
+            )
+        }
 
 class PlantForm(forms.ModelForm):
     class Meta:
         model = Plant
-        fields = '__all__'
+        fields = ['name' , 'species', 'date_added', 'description', 'image']
         widgets = {
             'date_added': forms.DateInput(
                 attrs={

@@ -23,34 +23,38 @@
       </div>
     </div>
     <div class="right-column">
-      <div class="card border-dark mb-3" style="max-width: 20rem;">
-        <div class="card-header">Add a Watering</div>
-        <form  action="{% url 'add-watering' plant.id %}" method="post" class="subsection-content" autocomplete="off">
-          {% csrf_token %} 
-          {{ watering_form.as_p }}
-          <button type="submit" class="btn btn-primary">Add Watering</button>
-        </form> 
-        <br/>
-        <div class="card-header">Wateringr Log</div>
-        <div class="card-body">
-      {% if plant.watering_set.all.count %}
-          <ul>
-      {% for watering in plant.watering_set.all %}
-          <li class="card-title">{{watering.water_amount}} ml on {{watering.date}}</li>
-      {% endfor %}
-          </ul>
-        </div>
-      {% else %}
-        <div class="subsection-content">
-        <p>⚠️ {{plant.name}} has not been watered!</p>
-        </div>
-      {% endif %}
-      </div>
+
 
       <div class="card border-dark mb-3" style="max-width: 20rem;">
         <a href="{% url 'plant-update' plant.id %}" class="btn btn-info">Edit</a>
         <br>
         <a href="{% url 'plant-delete' plant.id %}" class="btn btn-danger">Delete</a>
+        <br>
+        <a href="{% url 'water-create' plant.id%}" class="btn btn-warning">Add Watering</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-container">
+    <div class="card">
+      <div class="card mb-3">
+        <h3 class="card-header">Watering Log</h3>
+  <br/>
+        {% if plant.watering_set.all.count %}
+          <ul>
+            {% for watering in plant.watering_set.all %}
+              <li class="card-title">
+                <a href="{% url 'water-detail' plant.id watering.id %}">
+                  {{ watering.water_amount }} ml on {{ watering.date }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <div class="subsection-content">
+            <p>⚠️ {{ plant.name }} has not been watered!</p>
+          </div>
+        {% endif %}
+  
       </div>
     </div>
   </div>

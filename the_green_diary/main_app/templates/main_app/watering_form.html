@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+<link rel="stylesheet" href="{% static 'css/plants/plant-detail.css' %}" />
+{% endblock %} 
+{% block content %}
+
+
+<div class="card-container">
+    <div class="card">
+        <div class="page-header">
+            {% if object %}
+            <h1>Edit Watering Log</h1>
+          {% else %}
+            <h1>Add Watering</h1>
+          {% endif %}
+        </div>
+        <br>
+<form action="" method="post" class="form-container">
+  {% csrf_token %}
+  {{ form.as_p }}  
+  <br/>
+  <button type="submit" class="btn btn-primary">Submit!</button>
+</form>
+    <div>
+<div> 
+
+{% endblock %}

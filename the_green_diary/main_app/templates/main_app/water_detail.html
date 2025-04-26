@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/plants/plant-detail.css' %}" />
+{% endblock %}
+{% block content %}
+
+<div class="card-container">
+    <div class="card">
+      <div class="card mb-3">
+        <h3 class="card-header">{{ water.date }}</h3>
+     
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Amoount: {{ water.water_amount }} ml</li>
+        </ul>
+        <a href="{% url 'water-update' plant.id water.id  %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'water-delete' plant.id water.id %}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+    {% endblock %}

@@ -11,6 +11,7 @@
     <title>Plant Collector</title>
     <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.min.css" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {% block head %}
 
     {% endblock %}
@@ -26,34 +27,34 @@
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'plant-index' %}">All Plants</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'plant-create' %}">Add a Plant</a>
-              </li>
-              <li>
-                <form id="logout-form" method="post" action="{% url 'logout' %}">
-                  {% csrf_token %}
-                  <button class="nav-link" type="submit">Log out</button>
-                </form>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'plant-index' %}">All Plants</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'plant-create' %}">Add a Plant</a>
+                </li>
+                <li>
+                  <form id="logout-form" method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="nav-link" type="submit">Log out</button>
+                  </form>
+                </li>
               {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'home' %}">
-                  Login
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'home' %}">
+                    Login
+                    <span class="visually-hidden">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                </li>
               {% endif %}
             </ul>
           </div>
